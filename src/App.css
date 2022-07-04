@@ -38,3 +38,41 @@ body{
 label{
     align-self: center;
 }
+
+.grid-container{
+    display: grid;
+    grid-template-columns: 15vw 85vw;
+    grid-template-rows: 15vh 85vh;
+
+    height: 100%;
+    width: 100%;
+    background-color: red;
+    grid-template-areas: 
+    "logo header"
+    "sidebar main";
+}
+
+.item-a {
+    grid-area: logo;
+    background-color: red;
+    border: 5px solid black;
+}
+
+.item-b {
+    grid-area: header;
+    background-color: blue;
+    border: 5px solid black;
+}
+
+.item-c {
+    grid-area: sidebar;
+    background-color: green;
+    border: 5px solid black;
+}
+
+.item-d {
+    grid-area: main;
+    background-color: yellow;
+    border: 5px solid black;
+}
+  

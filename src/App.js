@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import LoginPageLayout from "./components/LoginPageLayout";
+import Hub from './components/Hub';
 import './App.css';
 
 
@@ -21,6 +22,7 @@ function App() {
   return (
     <div>
       {!loggedIn && <LoginPageLayout updateToken={setToken} updateLoginStatus={setLoggedIn}/>}
+      {loggedIn && <Hub/>}
     </div>
   );
 }
