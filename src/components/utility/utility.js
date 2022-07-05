@@ -53,7 +53,6 @@ export async function handleFetchRequest(incomingUrl, req){
         if(!response.ok){
             login = false;
         }
-
         return response.json();
     }
     ).then((data)=>{

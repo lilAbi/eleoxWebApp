@@ -1,4 +1,5 @@
 import HomePage from "./HomePage";
+import DisplayEmpLayout from "./DisplayEmpLayout";
 
 
 import slideshow1 from '../assest/pic1.png'
@@ -10,17 +11,17 @@ import slideshow4 from '../assest/pic4.png'
 const imagesArr = [slideshow1, slideshow2, slideshow3, slideshow4];
 
 
-function MainContent({pageNum}){
+function MainContent({pageNum, token}){
 
 
     function selectPage(pageNumber){
         switch(pageNumber){
 
             case 1:
-                return(<HomePage imageArr={imagesArr}/>)
+                return(<HomePage imageArr={imagesArr}/>);
 
             case 2:
-                return displayListPage();
+                return (<DisplayEmpLayout token={token}/>);
 
             case 3:
                 return addEmployeePage();
@@ -36,15 +37,6 @@ function MainContent({pageNum}){
         </div>
     );
 
-}
-
-//display list of employess with ability to see comments and delete them too
-function displayListPage(){
-    return(
-        <>
-            <p> displayList Page</p>
-        </>
-    );
 }
 
 //display form box to add new employee

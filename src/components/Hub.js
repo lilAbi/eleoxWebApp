@@ -9,7 +9,7 @@ import '../App.css';
 import imgSource from './../assest/eleoxLogo.png';
 
 
-function Hub(){
+function Hub({token}){
 
     //keep track what page the main content screen is on
     const [pageNumber, setPageNumber] = useState(1);
@@ -36,7 +36,7 @@ function Hub(){
 
             {/*main content*/}
             <div className="item-d">
-                <MainContent pageNum={pageNumber}/>
+                <MainContent token={token} pageNum={pageNumber}/>
             </div>
 
         </div>

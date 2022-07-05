@@ -155,8 +155,7 @@ label{
     border: 10px solid #646D83;
     border-radius: 15px;
     display: flex;
-    justify-content: space-between;
-
+    justify-content: center;
 }
 
 .imageContainer{
@@ -170,4 +169,60 @@ label{
 
     display: flex;
     justify-content: center;
+}
+
+.homeContainer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttonHome{
+    height: 100px;
+    width: 100px;
+    align-self: center;
+}
+
+.listContainer{
+    width: 90%;
+    height: 90%;
+    background-color: cadetblue;
+    display: flex;
+    align-self: center;
+    border: 10px solid #81887f;
+    border-radius: 15px;
+    overflow-y:auto;
+    flex-direction: column;
+}
+
+.listItem{
+    align-self: center;
+    margin: 10px;
+    border: 5px solid #81887f;
+    border-radius: 15px;
+    width: 90%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttonItem{
+    display: flex;
+}
+
+.textEmp>p{
+    font-weight: bold;
+}
+
+
+
+.commentLable{
+    align-self: center;
+    width:80%;
+    text-align: center;
+    font-weight: bold;
+    background-color: rgb(9, 105, 68);
+    margin-top: 5px;
+    border: 5px solid #81887f;
+    border-radius: 5px;
 }

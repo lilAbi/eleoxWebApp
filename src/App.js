@@ -10,7 +10,6 @@ function App() {
 
   const [token, setToken] = useState("noToken");
   const [loggedIn, setLoggedIn] = useState(false);
-
   const [username, setUsername] = useState("nousername");
 
 
@@ -24,7 +23,7 @@ function App() {
                       updateUserName={setUsername}
                       />
       }
-      {loggedIn && <Hub/>}
+      {loggedIn && <Hub token={token}/>}
       </UsernameContext.Provider>
     </div>
   );

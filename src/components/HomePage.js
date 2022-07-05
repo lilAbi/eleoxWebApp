@@ -22,13 +22,13 @@ function HomePage({imageArr}){
     }
 
     return(
-        <>
-            <button onClick={prevImage}> {'<'} </button>
+        <div className="homeContainer">
+            <button className="buttonHome" onClick={prevImage}> {'<'} </button>
             <div className="imageContainer">
                 <img className="imgItem" src={imageArr[currentImage]} alt="img not loaded"></img>
             </div>
-            <button onClick={nextImage}> {'>'} </button>
-        </>
+            <button className="buttonHome" onClick={nextImage}> {'>'} </button>
+        </div>
     );
 }
 
