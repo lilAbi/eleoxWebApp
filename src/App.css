@@ -12,17 +12,16 @@ body{
     
 }
 
-.container{
+.containerLogin{
     margin-top: 100px;
     width: auto;
     height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 5px solid pink;
 }
 
-.item{
+.itemLogin{
     display: flex;
     flex-direction: column;
     align-self: center;
@@ -46,7 +45,9 @@ label{
 
     height: 100%;
     width: 100%;
-    background-color: red;
+
+    background-color: #353A45;
+
     grid-template-areas: 
     "logo header"
     "sidebar main";
@@ -54,25 +55,119 @@ label{
 
 .item-a {
     grid-area: logo;
-    background-color: red;
-    border: 5px solid black;
 }
 
 .item-b {
     grid-area: header;
-    background-color: blue;
-    border: 5px solid black;
+    display: flex;
+    justify-content: center;
 }
 
 .item-c {
     grid-area: sidebar;
-    background-color: green;
-    border: 5px solid black;
+    display: flex;
+    justify-content: center;
 }
 
 .item-d {
     grid-area: main;
-    background-color: yellow;
-    border: 5px solid black;
+    display: flex;
+    justify-content: center;
 }
-  
+
+.box{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.gridImage{
+    max-height: 100%;
+    max-width: 100%;
+    display: block;
+    align-self: center;
+}
+
+.HeaderLayout{
+    min-width: 90%;
+    min-height: 50%;
+
+    max-width: 90%;
+    max-height: 70%;
+
+    display: flex;
+
+    justify-content: space-between;
+    background-color: rgb(88, 209, 163);
+
+    align-self: center;
+
+    border: 10px solid #646D83;
+    border-radius: 15px;
+}
+
+.labelText{
+    margin: 10px;
+    align-self: center;
+    text-decoration-line: underline;
+    font-weight: bold;
+}
+
+.SideBarLayout{
+    min-width: 70%;
+    min-height: 60%;
+
+    max-width: 80%;
+    max-height: 90%;
+
+    align-self: center;
+    background-color: rgb(88, 209, 163);
+    border: 5px solid #646D83;
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.sideBarLabelText{
+    margin: 5px;
+    height: 50px;
+    width: 100px;
+    align-self: center;
+    font-weight: bold;
+    align-content: center;
+    
+}
+.sideBarLabelText:hover{
+    background-color: rgb(106, 152, 135);   
+}
+
+.MainContentLayout{
+
+    width: 95%;
+    height: 95%;
+    background-color:rgb(88, 209, 163);
+    align-self: center;
+    border: 10px solid #646D83;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.imageContainer{
+
+    height:auto;
+    width: auto;
+
+    align-self: center;
+
+    background-color: black;
+
+    display: flex;
+    justify-content: center;
+}

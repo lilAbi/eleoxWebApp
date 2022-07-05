@@ -1,11 +1,11 @@
 import '../App.css'
 
-function ShowImage({imgSrc}){
+function ShowImage({imgSrc, classType}){
 
     return(
-        <div>
-            <img src={imgSrc} alt="eleox"></img>
-        </div>
+        <>
+            <img className={classType} src={imgSrc} alt="eleox"></img>
+        </>
     );
 
 }

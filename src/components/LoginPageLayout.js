@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, createContext } from 'react';
 import ShowImage from "./ShowImage";
 import LabelWithInput from "./LabelWithInput";
 import "../App.css"
@@ -6,7 +6,9 @@ import logoImage from "../assest/Eleox-logo-full-color-reversed.png"
 
 import {handleFetchRequest, returnHTTPHeader, makeRequestOption, getUrlExtension } from './utility/utility';
 
-function LoginPageLayout({updateToken, updateLoginStatus}){
+import { UsernameContext } from './utility/UsernameContext';
+
+function LoginPageLayout({updateToken, updateLoginStatus, updateUserName}){
 
     const [username, setUsername] = useState("int@eleox.com");
     const [password, setPassword] = useState("eleox");
@@ -21,6 +23,8 @@ function LoginPageLayout({updateToken, updateLoginStatus}){
         let bodyContent = {}
         bodyContent.username = username;
         bodyContent.password = password;
+
+        updateUserName(username);
 
         let request = makeRequestOption('POST',returnHTTPHeader(), bodyContent);
 
@@ -40,18 +44,21 @@ function LoginPageLayout({updateToken, updateLoginStatus}){
 
     return(
         <div className="loginPage">
-            <div className="container">
+            <div className="containerLogin">
                 
-                <ShowImage className="item" imgSrc={logoImage}/>
-                <form className="item loginForm" >
+                <ShowImage classType={"itemLogin"} imgSrc={logoImage}/>
+                <form className="itemLogin loginForm" >
+                    <UsernameContext.Provider value={username}>
+                        <LabelWithInput
+                            className="itemLogin" 
+                            labelText={"UserName:"}
+                            value={username}
+                            handleChange={setUsername}
+                        />
+                    </UsernameContext.Provider>
+                
                     <LabelWithInput
-                        className="item" 
-                        labelText={"UserName:"}
-                        value={username}
-                        handleChange={setUsername}
-                    />
-                    <LabelWithInput
-                        className="item" 
+                        className="itemLogin" 
                         labelText={"Password:"}
                         value={password}
                         handleChange={setPassword}

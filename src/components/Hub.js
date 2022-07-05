@@ -1,30 +1,42 @@
-import '../App.css'
+import ShowImage from './ShowImage';
+import HeaderLayout from './HeaderLayout';
+import SideBarLayout from './SideBarLayout';
+import MainContent from './MainContent';
+
+import { useState, useEffect } from 'react';
+
+import '../App.css';
+import imgSource from './../assest/eleoxLogo.png';
 
 
 function Hub(){
+
+    //keep track what page the main content screen is on
+    const [pageNumber, setPageNumber] = useState(1);
 
     return(
         <div className="grid-container">
 
             {/*Logo*/}
             <div className="item-a">
-                <p>hi</p>
-
+                <div className="box">
+                    <ShowImage classType={"gridImage"} imgSrc={imgSource}/>
+                </div>
             </div>
 
             {/*header*/}
             <div className="item-b">
-                <p>hello</p>
+                <HeaderLayout/>
             </div>
 
             {/*sideBar*/}
             <div className="item-c">
-                <p>yes</p>
+                <SideBarLayout updatePageNumber={setPageNumber}/>
             </div>
 
             {/*main content*/}
             <div className="item-d">
-                <p>no</p>
+                <MainContent pageNum={pageNumber}/>
             </div>
 
         </div>

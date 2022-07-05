@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, createContext } from 'react';
 import LoginPageLayout from "./components/LoginPageLayout";
 import Hub from './components/Hub';
 import './App.css';
 
+import { UsernameContext } from './components/utility/UsernameContext';
 
 
 function App() {
@@ -10,19 +11,21 @@ function App() {
   const [token, setToken] = useState("noToken");
   const [loggedIn, setLoggedIn] = useState(false);
 
+  const [username, setUsername] = useState("nousername");
 
-  useEffect(()=>{
-
-    console.log(token);
-    console.log(loggedIn);
-
-  },[loggedIn,token]);
 
 
   return (
     <div>
-      {!loggedIn && <LoginPageLayout updateToken={setToken} updateLoginStatus={setLoggedIn}/>}
+      <UsernameContext.Provider value={username}>
+      {!loggedIn && <LoginPageLayout 
+                      updateToken={setToken} 
+                      updateLoginStatus={setLoggedIn}
+                      updateUserName={setUsername}
+                      />
+      }
       {loggedIn && <Hub/>}
+      </UsernameContext.Provider>
     </div>
   );
 }
