@@ -1,4 +1,4 @@
-import LabelWithAction from "./LableWithAction";
+import LabelWithAction from "../parts/LableWithAction";
 
 
 

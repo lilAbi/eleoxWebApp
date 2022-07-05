@@ -1,15 +1,13 @@
-import ShowImage from './ShowImage';
+import ShowImage from '../parts/ShowImage';
 import HeaderLayout from './HeaderLayout';
 import SideBarLayout from './SideBarLayout';
 import MainContent from './MainContent';
 
 import { useState, useEffect } from 'react';
-
-import '../App.css';
-import imgSource from './../assest/eleoxLogo.png';
+import imgSource from './../../assest/eleoxLogo.png';
 
 
-function Hub({token}){
+function Hub({token, handleLogout}){
 
     //keep track what page the main content screen is on
     const [pageNumber, setPageNumber] = useState(1);
@@ -36,7 +34,7 @@ function Hub({token}){
 
             {/*main content*/}
             <div className="item-d">
-                <MainContent token={token} pageNum={pageNumber}/>
+                <MainContent token={token} handleLogout={handleLogout} pageNum={pageNumber}/>
             </div>
 
         </div>

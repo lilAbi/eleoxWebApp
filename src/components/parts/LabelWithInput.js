@@ -10,9 +10,10 @@ function LabelWithInput({labelText, value, handleChange}){
 
     return(
         <>
-            <label> {labelText}</label>
+            <label>{labelText}</label>
             <br/>
             <input type="text" value={value} onChange={updateValue}></input>
+            <br/>
         </>
     );
 

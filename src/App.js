@@ -1,6 +1,6 @@
 import { useState, useEffect, createContext } from 'react';
-import LoginPageLayout from "./components/LoginPageLayout";
-import Hub from './components/Hub';
+import LoginPageLayout from "./components/layouts/LoginPageLayout";
+import Hub from './components/layouts/Hub';
 import './App.css';
 
 import { UsernameContext } from './components/utility/UsernameContext';
@@ -23,7 +23,7 @@ function App() {
                       updateUserName={setUsername}
                       />
       }
-      {loggedIn && <Hub token={token}/>}
+      {loggedIn && <Hub token={token} handleLogout={setLoggedIn}/>}
       </UsernameContext.Provider>
     </div>
   );

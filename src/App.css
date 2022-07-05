@@ -226,3 +226,8 @@ label{
     border: 5px solid #81887f;
     border-radius: 5px;
 }
+
+.formItem{
+    align-self: center;
+    justify-content: space-between;
+}

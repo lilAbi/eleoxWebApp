@@ -44,23 +44,21 @@ export function returnHTTPHeader(token){
 
 export async function handleFetchRequest(incomingUrl, req){
 
-    let login = true;
+    let sucess = true;
     let dataResponse = undefined;
 
     await fetch(incomingUrl, req)
     .then(response=>{
-
         if(!response.ok){
-            login = false;
+            sucess = false;
         }
         return response.json();
-    }
-    ).then((data)=>{
-        if(login){
+    })
+    .then((data)=>{
+        if(sucess){
             dataResponse = data;
         }
-    })
-    .catch((error)=>{console.log('Error:',error);});
+    }).catch((error)=>{console.log('ErrorABI:',error);});
 
-    return [dataResponse, login];
+    return [dataResponse, sucess];
 }

@@ -1,19 +1,12 @@
-import DisplayLabel from "./DisplayLabel";
+import DisplayLabel from '../parts/DisplayLabel'
 import { useState, useEffect, useContext } from "react";
-import { UsernameContext } from "./utility/UsernameContext";
+import { UsernameContext } from "../utility/UsernameContext";
 
 
 
 function getTimeStamp(updateTimeFunc) {
-    //get current timestamp
-    let now = new Date();
-    let month= ["January","February","March","April","May","June","July","August","September","October","November","December"];
-    let time = now.getHours() + ':' + now.getMinutes();
-
-    // combine to get date
-    let date = [now.getDate(), month[now.getMonth()], now.getFullYear()].join(' ');
-
-    updateTimeFunc([date, time].join(' - '));
+    let date = new Date();
+    updateTimeFunc(date.toLocaleString());
 }
 
 

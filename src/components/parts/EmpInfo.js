@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import CommentBox from './CommentBox';
-import {handleFetchRequest, returnHTTPHeader, makeRequestOption, getUrlExtension } from './utility/utility'
+import {handleFetchRequest, returnHTTPHeader, makeRequestOption, getUrlExtension } from '../utility/utility'
 
 //function to get data from api 
 async function fetchEmpData(token, id){
@@ -14,11 +14,16 @@ async function fetchEmpData(token, id){
     return data;
 };
 
-function EmpInfo({empObj, token}){
+async function deleteEmpData(token, id){
+    let request = makeRequestOption('DELETE',returnHTTPHeader(token));
+    await handleFetchRequest(getUrlExtension("id",id), request)
+};
+
+function EmpInfo({empObj, token, handleDelete}){
     const [showComment, setShowComment] = useState(false);
     const[commentArr, setcommentArr] = useState([]);
 
-    //fetch data from api to populate list of employees
+    //fetch data from api to populate list of employees on inital load
     useEffect(()=>{
         const getData = async ()=>{
             await fetchEmpData(token, empObj.id).then((data)=>{
@@ -29,9 +34,12 @@ function EmpInfo({empObj, token}){
     },[]);
 
     //delete user
-    const deleteUser=()=>{
-        //alert do you really want to delete
-        console.log("delete");
+    const deleteUser=async()=>{
+        let deleteFlag = window.confirm(`Are you sure you want to delete ID: ${empObj.id}`);
+        if(deleteFlag){
+            await deleteEmpData(token, empObj.id);
+            handleDelete();
+        }
     }
 
     return(

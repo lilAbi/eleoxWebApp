@@ -1,6 +1,6 @@
-import EmpInfo from './EmpInfo';
+import EmpInfo from '../parts/EmpInfo';
 import { useState, useEffect } from 'react';
-import {handleFetchRequest, returnHTTPHeader, makeRequestOption, getUrlExtension } from './utility/utility';
+import {handleFetchRequest, returnHTTPHeader, makeRequestOption, getUrlExtension } from '../utility/utility';
 
 
 //function to get data from api 
@@ -14,12 +14,16 @@ async function fetchEmpData(token){
     return data;
 }
 
+//create your forceUpdate hook
+
 function DisplayEmpLayout({token}){
 
     const[empArr, setEmpArr] = useState([]);
+    const forceUpdate = useForceUpdate;
 
     //fetch data from api to populate list of employees
     useEffect(()=>{
+        console.log("imcalled");
         const getData = async ()=>{
             await fetchEmpData(token).then((data)=>{
                 setEmpArr(data);
@@ -28,19 +32,26 @@ function DisplayEmpLayout({token}){
         getData();
     },[]);
 
-
-
+    async function useForceUpdate(){
+        let arrData;
+        await fetchEmpData(token).then((data)=>{
+            arrData = data;
+        });
+        setEmpArr(arrData);
+    }
+    
+    console.log("display");
 
     return(
         <div className="listContainer">
-            {drawEmployee(empArr,token)}
+            {drawEmployee(empArr, token, forceUpdate)}
         </div>
     )
 }
 
 
 
-function drawEmployee(empArr, token){
+function drawEmployee(empArr, token, forceUpdate){
 
     if(empArr.length === 0){
         return(null);
@@ -49,7 +60,7 @@ function drawEmployee(empArr, token){
     const empList = empArr.map((emp)=>{
         let empObj = emp;
         return(
-            <EmpInfo key={empObj.id} empObj={empObj} token={token}></EmpInfo>
+            <EmpInfo handleDelete={forceUpdate} key={empObj.id} empObj={empObj} token={token}/>
         );
     });
 

@@ -1,17 +1,16 @@
 import { useState, createContext } from 'react';
-import ShowImage from "./ShowImage";
-import LabelWithInput from "./LabelWithInput";
-import "../App.css"
-import logoImage from "../assest/Eleox-logo-full-color-reversed.png"
+import ShowImage from "../parts/ShowImage";
+import LabelWithInput from "../parts/LabelWithInput";
+import logoImage from "../../assest/Eleox-logo-full-color-reversed.png"
 
-import {handleFetchRequest, returnHTTPHeader, makeRequestOption, getUrlExtension } from './utility/utility';
+import {handleFetchRequest, returnHTTPHeader, makeRequestOption, getUrlExtension } from '../utility/utility';
 
-import { UsernameContext } from './utility/UsernameContext';
+import { UsernameContext } from '../utility/UsernameContext';
 
 function LoginPageLayout({updateToken, updateLoginStatus, updateUserName}){
 
-    const [username, setUsername] = useState("int@eleox.com");
-    const [password, setPassword] = useState("eleox");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
 
     //Make a Login request
     async function handleClickLoginRequest(event){
