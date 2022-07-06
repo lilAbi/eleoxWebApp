@@ -3,3 +3,9 @@ This web application makes use of the Eleox API. This web application is able to
 
 
 ## BUILD INSTRUCTIONS
+1. open terminal
+2. clone repository to local folder
+3. cd  into '/eleoxWebApp'
+3. in the terminal enter 'npm install' to install dependency files
+4. enter in terminal: 'npm start' to deploy test server
+
