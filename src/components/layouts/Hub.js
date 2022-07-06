@@ -42,5 +42,4 @@ function Hub({token, handleLogout}){
 
 }
 
-
 export default Hub;

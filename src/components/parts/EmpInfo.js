@@ -8,7 +8,7 @@ async function fetchEmpData(token, id){
     let request = makeRequestOption('GET',returnHTTPHeader(token));
     await handleFetchRequest(getUrlExtension("id",id), request)
     .then(function(result){
-        data = result[0].person.comments;
+        data = (result[0]).person.comments;
     });
 
     return data;
@@ -32,7 +32,7 @@ function EmpInfo({empObj, token, handleDelete}){
             });
         }
         getData();
-    });
+    },[]);
 
     //delete user
     const deleteUser=async()=>{
