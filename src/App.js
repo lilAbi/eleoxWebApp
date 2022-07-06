@@ -1,8 +1,7 @@
-import { useState, useEffect, createContext } from 'react';
+import { useState} from 'react';
 import LoginPageLayout from "./components/layouts/LoginPageLayout";
 import Hub from './components/layouts/Hub';
 import './App.css';
-
 import { UsernameContext } from './components/utility/UsernameContext';
 
 
@@ -11,8 +10,6 @@ function App() {
   const [token, setToken] = useState("noToken");
   const [loggedIn, setLoggedIn] = useState(false);
   const [username, setUsername] = useState("nousername");
-
-
 
   return (
     <div>

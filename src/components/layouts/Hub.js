@@ -3,7 +3,7 @@ import HeaderLayout from './HeaderLayout';
 import SideBarLayout from './SideBarLayout';
 import MainContent from './MainContent';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import imgSource from './../../assest/eleoxLogo.png';
 
 

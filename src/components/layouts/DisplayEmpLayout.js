@@ -36,7 +36,7 @@ function DisplayEmpLayout({token}){
             });
         }
         getData();
-    },[]);
+    });
 
     return(
         <div className="listContainer">

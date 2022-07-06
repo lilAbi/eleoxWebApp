@@ -14,6 +14,7 @@ async function fetchEmpData(token, id){
     return data;
 };
 
+//request to delete emp from database
 async function deleteEmpData(token, id){
     let request = makeRequestOption('DELETE',returnHTTPHeader(token));
     await handleFetchRequest(getUrlExtension("id",id), request)
@@ -31,7 +32,7 @@ function EmpInfo({empObj, token, handleDelete}){
             });
         }
         getData();
-    },[]);
+    });
 
     //delete user
     const deleteUser=async()=>{
