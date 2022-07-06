@@ -2,7 +2,7 @@ import LabelWithAction from "../parts/LableWithAction";
 
 
 
-function SideBarLayout({updatePageNumber}){
+function SideBarLayout({updatePageNumber, handleLogout}){
     return(
         <div className="SideBarLayout">
             <LabelWithAction    classType={"sideBarLabelText"}
@@ -22,7 +22,7 @@ function SideBarLayout({updatePageNumber}){
 
             <LabelWithAction    classType={"sideBarLabelText"}
                                 text={"Logout"}
-                                handleClick={()=>updatePageNumber(4)}
+                                handleClick={()=>handleLogout(false)}
                                 />
         </div>
     );

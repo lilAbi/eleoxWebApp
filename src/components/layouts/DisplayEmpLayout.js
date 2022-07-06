@@ -14,24 +14,9 @@ async function fetchEmpData(token){
     return data;
 }
 
-//create your forceUpdate hook
-
 function DisplayEmpLayout({token}){
 
-    const[empArr, setEmpArr] = useState([]);
-    const forceUpdate = useForceUpdate;
-
-    //fetch data from api to populate list of employees
-    useEffect(()=>{
-        console.log("imcalled");
-        const getData = async ()=>{
-            await fetchEmpData(token).then((data)=>{
-                setEmpArr(data);
-            });
-        }
-        getData();
-    },[]);
-
+    //force update this component to render after deleting a comment
     async function useForceUpdate(){
         let arrData;
         await fetchEmpData(token).then((data)=>{
@@ -39,8 +24,19 @@ function DisplayEmpLayout({token}){
         });
         setEmpArr(arrData);
     }
-    
-    console.log("display");
+
+    const[empArr, setEmpArr] = useState([]);
+    const forceUpdate = useForceUpdate;
+
+    //fetch data from api to populate list of employees
+    useEffect(()=>{
+        const getData = async ()=>{
+            await fetchEmpData(token).then((data)=>{
+                setEmpArr(data);
+            });
+        }
+        getData();
+    },[]);
 
     return(
         <div className="listContainer">
@@ -51,6 +47,7 @@ function DisplayEmpLayout({token}){
 
 
 
+//draw employlee info 
 function drawEmployee(empArr, token, forceUpdate){
 
     if(empArr.length === 0){

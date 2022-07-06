@@ -29,12 +29,12 @@ function Hub({token, handleLogout}){
 
             {/*sideBar*/}
             <div className="item-c">
-                <SideBarLayout updatePageNumber={setPageNumber}/>
+                <SideBarLayout handleLogout={handleLogout} updatePageNumber={setPageNumber}/>
             </div>
 
             {/*main content*/}
             <div className="item-d">
-                <MainContent token={token} handleLogout={handleLogout} pageNum={pageNumber}/>
+                <MainContent token={token} pageNum={pageNumber}/>
             </div>
 
         </div>

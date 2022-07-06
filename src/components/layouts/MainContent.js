@@ -1,18 +1,20 @@
 import HomePage from "./HomePage";
 import DisplayEmpLayout from "./DisplayEmpLayout";
 import AddEmpPage from "./AddEmpPage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 import slideshow1 from '../../assest/pic1.png'
 import slideshow2 from '../../assest/pic2.png'
 import slideshow3 from '../../assest/pic3.png'
 import slideshow4 from '../../assest/pic4.png'
+import { getValue } from "@testing-library/user-event/dist/utils";
+import { returnHTTPHeader } from "../utility/utility";
 
 
 const imagesArr = [slideshow1, slideshow2, slideshow3, slideshow4];
 
-function MainContent({pageNum, token, handleLogout}){
+function MainContent({pageNum, token}){
 
     function selectPage(pageNumber){
         switch(pageNumber){
@@ -25,11 +27,7 @@ function MainContent({pageNum, token, handleLogout}){
 
             case 3:
                 return (<AddEmpPage token={token}/>);
-            
-            case 4:
-                handleLogout(false);
-                return(<></>)
-
+                
             default:
                 return(<p>CONTENT NOT FOUND</p>);
         }
